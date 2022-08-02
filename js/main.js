@@ -32,7 +32,7 @@ function changeRarity(newRarity){
 }
 
 function generateItem(){
-    newItem = undefined;
+    var newItem = undefined;
     if(currentItemType == itemType.types.weapon || currentItemType == itemType.types.staff)
         newItem = new item(currentItemType, currentRarity, 0.3);
     else if(currentItemType == itemType.types.armor)
@@ -41,12 +41,16 @@ function generateItem(){
         newItem = new item(currentItemType, currentRarity, 0.5);
     else
         newItem = new item(currentItemType, 0, 1, [new Slot(currentItemType, colorList.colors.green)]);
+    var newItemDiv = document.createElement("div");
+    newItemDiv.style.border = "1px solid";
+    newItemDiv.style.width = "fit-content";
+    newItemDiv.style.padding = "6px";
     console.log(newItem);
 }
 
 function generateRandomItem(){
-    itemTypeKeys = Object.keys(itemType.types);
-    type = itemType.types[itemTypeKeys[itemTypeKeys.length * Math.random() << 0]];
+    var itemTypeKeys = Object.keys(itemType.types);
+    var type = itemType.types[itemTypeKeys[itemTypeKeys.length * Math.random() << 0]];
     if(type == itemType.types.accessory)
         newItem = new item(type, 0, 1, [new Slot(currentItemType, colorList.colors.green)]);
     else
