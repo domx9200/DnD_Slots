@@ -11,7 +11,7 @@ class itemType {
 }
 
 class itemRates {
-    static rates
+    static rates = {"weapon":0.3, "armor":0.7, "accessory":1, "wonderous":0.5, "staff": 0.3}
 }
 
 //slotColor is a dataclass to make adding colors to slots and gems easier

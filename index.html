@@ -5,13 +5,34 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Test</title>
+
+    <script src="js/common/dataclasses.js"></script>
+    <script src="js/common/itemClass.js"></script>
+    <script src="js/gem.js"></script>
+    <script src="js/main.js"></script>
 </head>
 <body>
     <div>This page is currently under construction</div>
-    <input type="button" value="press" onclick="test()">
-    <script src="js/gem.js"></script>
-    <script src="js/main.js"></script>
-    <script src="js/dataclasses.js"></script>
-    <script src="js/itemClass.js"></script>
+
+    <div style="border: 1px solid; width:fit-content; padding-left: 2px; padding-right: 2px;" >
+        <select id="itemList" onchange="changeItemType(this.value)">
+            <option value="weapon">Weapon</option>
+            <option value="armor">Armor</option>
+            <option value="accessory">Accessory</option>
+            <option value="wonderous">Wonderous</option>
+            <option value="staff">Staff</option>
+        </select>
+        
+        <select id="rarityList" onchange="changeRarity(this.value)">
+            <option value="0">Common</option>
+            <option value="1">Uncommon</option>
+            <option value="2">Rare</option>
+            <option value="3">Very Rare</option>
+            <option value="4">Legendary</option>
+        </select>
+
+        <button onclick="generateItem()">generate item</button>
+    </div>
+    <button onclick="generateRandomItem()">generate random item</button>
 </body>
 </html>

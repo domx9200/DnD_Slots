@@ -11,10 +11,10 @@ class gem {
     //  example input: {itemType.weapon: {slotColor.red: "Fire adds an additional 1d4/6/8 fire damage to any weapon applied to it."}}
 
     // incompatableList: {gem names} hash set that represents the gems that cannot be slotted together.
-    constructor(name, level, requiredSlots, effectList, incompatableList = {}){
+    constructor(name, level, requiredSlots, effectList, incompatableList = undefined){
         // name type validation
         if(typeof(name) != "string"){
-            console.log("Input name isn't a string. defaulting name to null.");
+            console.log("gem.contructor: Input name isn't a string. defaulting name to null.");
             this.name = 'null';
         } else {
             this.name = name;
@@ -22,7 +22,7 @@ class gem {
 
         // level type validation
         if(typeof(level) != "number"){
-            console.log("Input level isn't a number, defaulting to 1.");
+            console.log("gem.contructor: Input level isn't a number, defaulting to 1.");
             this.level = 1;
         } else {
             this.level = level;
@@ -30,12 +30,17 @@ class gem {
 
         // requiredSlots type validation
         if(typeof(requiredSlots) != 'number'){
-            console.log("Input required slots isn't a Number. defaulting to 1");
+            console.log("gem.contructor: Input requiredSlots isn't a Number. defaulting to 1");
             this.requiredSlots = 1;
         } else {
             this.requiredSlots = requiredSlots;
         }
         this.effectList = this.validateEffectList(effectList);
+
+        if(incompatableList != undefined)
+            console.log("at this time incompatableList isn't properly implemented.\ncurrently using default value only.");
+        this.incompatableList = new Set();
+        this.incompatableList.add(name);
     }
 
     validateEffectList(effectList){
