@@ -14,6 +14,10 @@ class itemRates {
     static rates = {"weapon":0.3, "armor":0.7, "accessory":1, "wonderous":0.5, "staff": 0.3}
 }
 
+class rarityList {
+    static rarities = {0:"common", 1:"uncommon", 2:"rare", 3:"very rare", 4:"legendary"}
+}
+
 //slotColor is a dataclass to make adding colors to slots and gems easier
 class colorList {
     static colors = {"red":"red" , "blue":"blue", "green":"green"};

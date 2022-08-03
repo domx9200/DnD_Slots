@@ -42,9 +42,17 @@ function generateItem(){
     else
         newItem = new item(currentItemType, 0, 1, [new Slot(currentItemType, colorList.colors.green)]);
     var newItemDiv = document.createElement("div");
-    newItemDiv.style.border = "1px solid";
-    newItemDiv.style.width = "fit-content";
-    newItemDiv.style.padding = "6px";
+    newItemDiv.setAttribute("class", "generatedItem");
+
+    var slotList = "";
+    for(var i = 0; i < newItem.slots.length; i++){
+        slotList = slotList + "Slot = " + newItem.slots[i].color + "<br>";
+    }
+
+    newItemDiv.innerHTML = "ItemType = " + newItem.type + 
+                         "<br>Rarity = " + rarityList.rarities[newItem.rarity] +
+                         "<br>" + slotList;
+    document.getElementById("generatedItems").appendChild(newItemDiv);
     console.log(newItem);
 }
 
