@@ -61,3 +61,21 @@ class item {
         }
     }
 }
+
+class weapon extends item {
+    constructor(name, dieType = dice.types[4], numberToRoll = 1, damageType = damageTypes.types.slashing, rarity = 0, slots = []){
+        super(itemType.types.weapon, rarity, itemRates.rates.weapon, slots);
+        this.name = name;
+        this.dieType = dice.validateDieType(dieType) ? dieType : dice.types[4];
+        this.numToRoll = numberToRoll;
+        this.damageType = damageTypes.validateDamageType(damageType) ? damageType : damageTypes.types.slashing;
+        this.itemHtml = document.createElement("div");
+    }
+
+    updateHTML(){
+        this.itemHtml = document.createElement("div");
+        this.itemHtml.setAttribute("class", "generatedItem");
+        this.itemHtml.innerHTML = "type: " + this.type + "<br>weapon: " + this.name + "<br>rarity: " + rarityList.rarities[this.rarity] +
+                                  "<br>damage type: " + this.damageType + "<br>dice: " + this.numToRoll + dice.types[this.dieType] + "<br>" + this.slots;
+    }
+}

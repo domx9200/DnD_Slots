@@ -10,6 +10,34 @@ class itemType {
     }
 }
 
+class dice {
+    static types = {
+        4:"d4",
+        6:"d6",
+        8:"d8",
+        10:"d10",
+        12:"d12",
+        20:"d20",
+        100:"d100"
+    }
+
+    static validateDieType(input){
+        return this.types[input] != undefined ? true : false;
+    }
+}
+
+class damageTypes {
+    static types = {
+        "slashing":"slashing",
+        "bludgeoning":"bludgeoning",
+        "piercing":"piercing"
+    }
+
+    static validateDamageType(input){
+        return this.types[input] != undefined ? true : false;
+    }
+}
+
 class itemRates {
     static rates = {"weapon":0.3, "armor":0.7, "accessory":1, "wonderous":0.5, "staff": 0.3}
 }
